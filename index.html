@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/afc06b51d4.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" defer></script>
+    <title>Random Password Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="header">Password Generator</h2>
+      <div class="result" data-result>
+        <div class="result__title field__title">Generated Password</div>
+        <div class="result__info right" data-result-info-right>
+          Click to copy
+        </div>
+        <div class="result__info left" data-result-info-left>Copied</div>
+        <div class="result__viewbox" id="result" data-result-viewbox>
+          Click Generate
+        </div>
+        <button class="btn-copy" style="--x: 0; --y: 0" data-btn-copy>
+          <i class="fa-regular fa-copy"></i>
+        </button>
+      </div>
+      <div
+        class="length range__slider"
+        data-min="4"
+        data-max="32"
+        data-range-slider
+      >
+        <div
+          class="length__title field__title"
+          data-length="0"
+          data-length-title
+        >
+          Length:
+        </div>
+        <div class="strength__title" data-strength="weak" data-strength-value>
+          Strength:
+        </div>
+        <input
+          class="slider"
+          type="range"
+          min="4"
+          max="32"
+          value="16"
+          data-slider
+        />
+      </div>
+      <div class="settings">
+        <span class="setting__title field--title">Settings</span>
+        <div class="setting">
+          <input type="checkbox" id="uppercase" checked data-uppercase />
+          <label for="uppercase">Include Uppercase</label>
+        </div>
+        <div class="setting">
+          <input type="checkbox" id="lowercase" checked data-lowercase />
+          <label for="lowercase">Include Lowercase</label>
+        </div>
+        <div class="setting">
+          <input type="checkbox" id="numbers" checked data-numbers />
+          <label for="numbers">Include Numbers</label>
+        </div>
+        <div class="setting">
+          <input type="checkbox" id="symbols" data-symbols />
+          <label for="symbols">Include Symbols</label>
+        </div>
+      </div>
+      <button class="btn generate" id="generate" data-btn-generate>
+        Generate Password
+      </button>
+    </div>
+  </body>
+</html>
