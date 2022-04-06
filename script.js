@@ -19,6 +19,8 @@ const lowerElement = document.querySelector("[data-lowercase]");
 const numbersElement = document.querySelector("[data-numbers]");
 const symbolsElement = document.querySelector("[data-symbols]");
 
+const themeBtn = document.querySelector("[data-theme-btn]");
+
 let generatedPassword = false;
 
 //////////////////////////////////////////
@@ -184,4 +186,35 @@ function disableOnlyCheckbox() {
   el.addEventListener("click", () => {
     disableOnlyCheckbox();
   });
+});
+
+///////////////////////////////////////
+// theme changing
+const darkTheme = "dark__theme";
+const themeIcon = "uil-sun";
+
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
+
+const getCurrentTheme = () => {
+  return document.body.classList.contains(darkTheme) ? "dark" : "light";
+};
+
+const getCurrentIcon = () => {
+  return themeBtn.classList.contains(themeIcon) ? "uil-moon" : "uil-sun";
+};
+
+if (selectedTheme) {
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+    darkTheme
+  );
+  themeBtn.classList[selectedIcon === "uil-moon" ? "add" : "remove"](themeIcon);
+}
+// manually changing theme
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle(darkTheme);
+  themeBtn.classList.toggle(themeIcon);
+
+  localStorage.setItem("selected-theme", getCurrentTheme());
+  localStorage.setItem("selected-icon", getCurrentIcon());
 });

@@ -10,9 +10,15 @@
 :root {
   /* colors */
   --hue: 235;
-  --primary-dark: hsl(var(--hue), 66%, 12%);
-  --field-color: hsl(233, 38%, 18%);
-  --light-text: hsl(0, 0%, 100%);
+
+  --primary-dark: hsl(var(--hue), 100%, 82%);
+  --field-color: hsl(var(--hue), 86%, 86%);
+  --light-text: hsl(236, 100%, 3%);
+  --length-text-color: hsla(0, 0%, 1%, 0.5);
+  --theme-change-hover: hsl(var(--hue), 29%, 50%);
+  --checkbox-bg-color: hsla(0, 0%, 41%, 0.4);
+
+  --checkbox-thumb: hsl(0, 0%, 100%);
   --range-handle-color: hsl(0, 0%, 100%) !important;
   --range-handle-color-hover: hsl(0, 0%, 83%) !important;
   --range-handle-size: 2rem !important;
@@ -28,6 +34,14 @@
 html {
   font-size: 10px;
 }
+body.dark__theme {
+  --primary-dark: hsl(var(--hue), 66%, 12%);
+  --field-color: hsl(var(--hue), 38%, 18%);
+  --light-text: hsl(0, 0%, 100%);
+  --length-text-color: hsla(0, 0%, 100%, 0.5);
+  --theme-change-hover: hsl(var(--hue), 70%, 73%);
+  --checkbox-bg-color: hsla(0, 0%, 84%, 0.4);
+}
 
 body {
   width: 100%;
@@ -40,7 +54,7 @@ body {
 }
 
 .container {
-  /* width: 40rem; */
+  width: 30rem;
   /* height: 60rem; */
   margin: 4rem 0;
   padding: 1rem 2.5rem;
@@ -53,11 +67,31 @@ body {
   font-family: "Roboto", sans-serif;
 }
 .container .header {
-  font-size: 2.8rem;
-  margin: 1rem -0.5rem 3rem -0.5rem;
-  color: --light-text;
+  font-size: 2rem;
+  color: var(--light-text);
 }
 
+.header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 1rem -0.5rem 3rem -0.5rem;
+}
+
+/* .theme__toggle {
+  font-size: 2rem;
+} */
+
+.theme__change {
+  color: var(--light-text);
+  font-size: 2rem;
+  cursor: pointer;
+}
+.theme__change:hover,
+.theme__change:focus {
+  color: var(--theme-change-hover);
+}
 .result {
   width: 100%;
   height: var(--field-height);
@@ -94,7 +128,7 @@ body {
   color: var(--light-text);
   text-align: center;
   line-height: 65px;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 
 .field__title {
@@ -103,7 +137,7 @@ body {
   left: 0.8rem;
   transform: translateY(-50%);
   font-weight: 700;
-  color: hsla(0, 0%, 100%, 0.5);
+  color: var(--length-text-color);
   text-transform: uppercase;
   font-size: 1rem;
   pointer-events: none;
@@ -252,14 +286,14 @@ body {
   height: 10px;
   width: 40px;
   border-radius: 30px;
-  background-color: hsla(0, 0%, 84%, 0.4);
+  background-color: var(--checkbox-bg-color);
 }
 .settings .setting label::after {
   height: 20px;
   width: 20px;
   border-radius: 50%;
   right: 32px;
-  background-color: var(--light-text);
+  background-color: var(--checkbox-thumb);
 }
 
 .settings .setting input:checked ~ label::before {
